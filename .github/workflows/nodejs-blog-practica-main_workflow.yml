@@ -37,7 +37,7 @@ jobs:
         run: npm run cypress > result.txt || true # True fa que es guarde encara que falle.
 
       - name: Upload result.txt
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: result.txt
           path: result.txt
