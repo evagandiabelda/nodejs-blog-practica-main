@@ -25,3 +25,19 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+  cypress_job:
+    runs-on: ubuntu-latest
+    needs: linter_job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Cypress tests and save output
+        run: npm run cypress > result.txt || true # True fa que es guarde encara que falle.
+
+      - name: Upload result.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: result.txt
+          path: result.txt
