@@ -7,5 +7,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ./index.sh ${{ inputs.cypress_outcome }}
+    - run: ./.github/actions/add-badge/index.sh ${{ inputs.cypress_outcome }}
       shell: bash
