@@ -7,7 +7,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ./index.sh
+    - run: ./index.sh ${{ inputs.cypress_outcome }}
       shell: bash
-      with:
-        args: ${{ inputs.cypress_outcome }}
