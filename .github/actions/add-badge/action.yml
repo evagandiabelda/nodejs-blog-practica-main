@@ -5,5 +5,9 @@ inputs:
     description: "Resultat (success o failure)"
     required: true
 runs:
-  using: "bash"
-  main: "index.sh"
+  using: "composite"
+  steps:
+    - run: ./index.sh
+      shell: bash
+      with:
+        args: ${{ inputs.cypress_outcome }}
