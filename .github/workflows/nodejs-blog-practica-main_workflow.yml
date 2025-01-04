@@ -41,3 +41,24 @@ jobs:
         with:
           name: result.txt
           path: result.txt
+
+  add_badge_job:
+    runs-on: ubuntu-latest
+    needs: cypress_job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download result.txt
+        uses: actions/download-artifact@v3
+        with:
+          name: result.txt
+
+      - name: Get Cypress outcome
+        id: get_cypress_outcome # Per poder referenciar-ho després.
+        run: echo "::set-output name=cypress_outcome::$(cat result.txt)"
+
+      - name: Add badge to README
+        uses: ./.github/actions/add-badge
+        with:
+          cypress_outcome: ${{ steps.get_cypress_outcome.outputs.cypress_outcome }}

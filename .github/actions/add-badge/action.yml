@@ -1,0 +1,9 @@
+name: "Add Badge to README"
+description: "Afegix un badge al README, depenent del resultat dels tests de Cypress."
+inputs:
+  cypress_outcome:
+    description: "Resultat (success o failure)"
+    required: true
+runs:
+  using: "bash"
+  main: "index.sh"
