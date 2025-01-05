@@ -82,6 +82,9 @@ jobs:
     needs: [ linter_job, cypress_job, add_badge_job, deploy_job ]
     if: always()
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Send notification email
         uses: actions/setup-node@v2  # Configurem Node.js a la màquina virtual.
         with:
