@@ -24,6 +24,7 @@ A més, aquest projecte ha integrat un badge en el README del repositori, el qua
 ## Nodemailer
 Nodemailer és una llibreria per a Node.js que facilita l'enviament de correus electrònics des d'una aplicació. Aquesta eina permet configurar fàcilment un servidor SMTP per a l'enviament de correus, així com l'administració de missatges amb format HTML, arxius adjunts i altres característiques avançades. En aquest projecte, Nodemailer es va utilitzar per a enviar correus electrònics automàtics com a part del workflow de GitHub Actions, notificant l'estat de les proves i del desplegament del projecte. Aquesta funcionalitat és útil per mantenir els desenvolupadors informats sobre l'estat del seu codi i processos relacionats.
 
+
 # Documentació de l'activitat
 
 ## Preparació de l'entorn
@@ -40,7 +41,7 @@ Prova d'execució:
   <img src="./Captures/2 - Prova d&apos;execució.png" alt="imatge" width="100%">
 </p>
 
-Prova de funcionament del Linter:
+Prova de funcionament del Linter. S'executa correctament, ja que és capaç de trobar errors al codi:
 
 <p align="center">
   <img src="./Captures/3 - Prova de funcionament del linter.png" alt="imatge" width="100%">
@@ -235,6 +236,7 @@ El correu s'envia correctament informant sobre el resultat de cada job:
 <p align="center">
   <img src="./Captures/34 - El correu s&apos;envia correctament informant sobre el resultat de cada job.png" alt="imatge" width="100%">
 </p>
+
 
 # Extra: Mostrar mètriques d'ús al repositori personal
 
