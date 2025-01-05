@@ -76,4 +76,25 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          
+
+  notification_job:
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send notification email
+        uses: actions/setup-node@v2  # Configurem Node.js a la màquina virtual.
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install nodemailer # Instal·lem la llibreria nodemailer.
+
+      - name: Run email script
+        run: node send-email.js # Executem el script de l'enviament de correu.
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_EMAIL_PASSWORD: ${{ secrets.MY_EMAIL_PASSWORD }}
+          LINTER_RESULT: ${{ needs.linter_job.result }}
+          CYPRESS_RESULT: ${{ needs.cypress_job.result }}
+          ADD_BADGE_RESULT: ${{ needs.add_badge_job.result }}
+          DEPLOY_RESULT: ${{ needs.deploy_job.result }}
